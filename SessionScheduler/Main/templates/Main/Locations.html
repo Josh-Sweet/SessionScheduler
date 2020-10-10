@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Locations</h1>
+     <ul>
+        {% for location in locationList %}
+            <li>
+                {{ location }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'welcome' %}">Return to Home</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome To Session Scheduler</h1>
+    <p>
+        This is a test application used to demonstrate
+        model relationships using Django framework.
+    </p>
+    <p>
+        There are currently {{ numAttendants }} people planning to attend {{ numSessions }} sessions.
+    </p>
+
+    <h2>Sessions</h2>
+    <ul>
+        {% for Session in sessionList %}
+            <li>
+                <a href="{% url 'SessionDetail' Session.id %}">
+                    {{ Session.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        <a href="{% url 'new' %}">
+        Schedule a new session
+     </a>
+    </p>
+
+    <p>
+        <a href="{% url 'locations' %}">
+          Current locations being used.
+        </a>
+    </p>
+{% endblock %}
